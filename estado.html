@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sol de Oro - Estado de solicitud</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/estado.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">SO</div>
+          <div class="logo-text">
+            <span class="logo-name">Sol de Oro</span>
+            <span class="logo-subtitle">Servicios financieros inclusivos</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="simulador.html" class="nav-link">Simulador</a>
+          <a href="solicitud.html" class="nav-link active">Solicitud</a>
+          <a href="ayuda.html" class="nav-link">Ayuda</a>
+          <a href="agenda.html" class="nav-link">Agenda asesor</a>
+        </nav>
+        <button
+          id="btn-accesibilidad"
+          class="btn-accesibilidad"
+          onclick="togglePanel()"
+        >
+          Ocultar panel
+        </button>
+      </div>
+    </header>
+
+    <!-- LAYOUT -->
+    <div class="page-wrapper">
+      <main class="main-content">
+        <div class="page active">
+          <!-- Encabezado -->
+          <div class="estado-header">
+            <h1>Estado de solicitud</h1>
+            <p>Consulta el avance de tu préstamo de forma clara y sencilla.</p>
+          </div>
+
+          <!-- Grid 3 columnas -->
+          <div class="estado-grid">
+            <!-- Columna 1: Seguimiento del proceso -->
+            <div class="estado-card">
+              <div class="estado-card-title">Seguimiento del proceso</div>
+              <div class="estado-card-subtitle">
+                Tu solicitud está siendo revisada.
+              </div>
+
+              <div class="estado-steps">
+                <!-- Paso 1: completado -->
+                <div class="estado-step">
+                  <div class="estado-step-left">
+                    <div class="estado-step-circle done">1</div>
+                    <div class="estado-step-line done"></div>
+                  </div>
+                  <div class="estado-step-content">
+                    <div class="estado-step-title">Solicitud recibida</div>
+                    <div class="estado-step-desc">
+                      Tus datos fueron enviados correctamente.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Paso 2: activo -->
+                <div class="estado-step">
+                  <div class="estado-step-left">
+                    <div class="estado-step-circle active">2</div>
+                    <div class="estado-step-line"></div>
+                  </div>
+                  <div class="estado-step-content">
+                    <div class="estado-step-title">En evaluación</div>
+                    <div class="estado-step-desc">
+                      Un asesor revisará la información enviada.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Paso 3: pendiente -->
+                <div class="estado-step">
+                  <div class="estado-step-left">
+                    <div class="estado-step-circle">3</div>
+                    <div class="estado-step-line"></div>
+                  </div>
+                  <div class="estado-step-content">
+                    <div class="estado-step-title pending">
+                      Validación de datos
+                    </div>
+                    <div class="estado-step-desc pending">
+                      Podrían solicitarte una confirmación adicional.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Paso 4: pendiente -->
+                <div class="estado-step">
+                  <div class="estado-step-left">
+                    <div class="estado-step-circle">4</div>
+                  </div>
+                  <div class="estado-step-content">
+                    <div class="estado-step-title pending">Resultado final</div>
+                    <div class="estado-step-desc pending">
+                      Recibirás la respuesta de tu solicitud.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /seguimiento -->
+
+            <!-- Columna 2: Resumen -->
+            <div class="estado-card">
+              <div class="estado-card-title">Resumen</div>
+              <div class="estado-card-subtitle">Información principal.</div>
+
+              <div class="estado-resumen-box">
+                <div class="estado-resumen-label">Código</div>
+                <div class="estado-resumen-value">SO-2048</div>
+              </div>
+
+              <div class="estado-resumen-box">
+                <div class="estado-resumen-label">Monto solicitado</div>
+                <div class="estado-resumen-value">S/ 2,000</div>
+              </div>
+
+              <div class="estado-resumen-box">
+                <div class="estado-resumen-label">Tiempo estimado</div>
+                <div class="estado-resumen-value">24 horas</div>
+              </div>
+
+              <div class="estado-next-step">
+                <div class="estado-next-title">Siguiente paso</div>
+                <div class="estado-next-text">
+                  Espera la revisión o contacta a un asesor.
+                </div>
+              </div>
+            </div>
+            <!-- /resumen -->
+
+            <!-- Columna 3: Panel de ayuda -->
+            <div id="panel-ayuda-estado" class="estado-panel">
+              <div class="estado-panel-header panel-header">
+                <div class="estado-panel-icon panel-icon">A</div>
+                <div>
+                  <div class="estado-panel-title panel-title">
+                    Panel de ayuda
+                  </div>
+                  <div class="estado-panel-subtitle panel-subtitle">
+                    Acciones accesibles
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="estado-panel-btn panel-btn"
+                onclick="leerEnVozAlta()"
+              >
+                Leer en voz alta
+              </button>
+
+              <div class="estado-panel-row panel-row">
+                <button
+                  class="estado-panel-btn panel-btn"
+                  onclick="aumentarTexto()"
+                >
+                  A+ Texto
+                </button>
+                <button
+                  class="estado-panel-btn panel-btn"
+                  onclick="disminuirTexto()"
+                >
+                  A- Texto
+                </button>
+              </div>
+
+              <button
+                class="estado-panel-btn panel-btn btn-dark"
+                onclick="toggleAltoContraste()"
+              >
+                Alto contraste
+              </button>
+              <button
+                class="estado-panel-btn panel-btn btn-warm"
+                onclick="toggleLecturaSimple()"
+              >
+                Lectura simple
+              </button>
+              <a href="agenda.html" class="estado-panel-btn panel-btn btn-dark"
+                >Hablar con asesor</a
+              >
+            </div>
+            <!-- /panel -->
+          </div>
+          <!-- /estado-grid -->
+
+          <!-- CTA Banner -->
+          <div class="cta-banner estado-cta">
+            <div class="cta-text">
+              <h2>Seguimiento claro para el usuario</h2>
+              <p>
+                El estado permite saber en qué parte del proceso se encuentra la
+                solicitud sin generar confusión.
+              </p>
+            </div>
+            <a href="agenda.html" class="btn-cta-white">Hablar con asesor</a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/actions/leer-voz-alta.js"></script>
+    <script src="js/actions/tamano-texto.js"></script>
+    <script src="js/actions/alto-contraste.js"></script>
+    <script src="js/actions/lectura-simple.js"></script>
+  </body>
+</html>

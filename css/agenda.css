@@ -1,0 +1,248 @@
+/* ==========================================
+   SOL DE ORO — Estilos exclusivos de Agenda
+   ========================================== */
+
+.agenda-header {
+  margin: 32px 0 28px;
+}
+
+/* Grid 3 columnas */
+.agenda-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+  align-items: start;
+}
+
+/* Tarjeta base */
+.agenda-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+/* Tipografía de tarjeta compartida en styles.css */
+
+/* Etiquetas de sección */
+.agenda-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b2d5c;
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+
+/* Pills / botones de selección */
+.agenda-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.agenda-pill {
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  transition: all 0.15s;
+}
+
+.agenda-pill:hover {
+  border-color: #0b2d5c;
+  color: #0b2d5c;
+}
+
+.agenda-pill.active {
+  background: #0b2d5c;
+  color: #ffffff;
+  border-color: #0b2d5c;
+}
+
+/* Pills de fecha (más anchas, centradas) */
+.agenda-pill.fecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 14px;
+  line-height: 1.2;
+}
+
+.agenda-pill.fecha .dia-nombre {
+  font-size: 12px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.agenda-pill.fecha .dia-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: inherit;
+}
+
+/* Botón reservar */
+.agenda-submit {
+  margin-top: 20px;
+  padding: 16px;
+  font-size: 15px;
+  border-radius: 50px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---- Columna 2: Resumen ---- */
+.agenda-resumen-box {
+  background: #f0f6ff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.agenda-resumen-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.agenda-resumen-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0b2d5c;
+  line-height: 1.2;
+}
+
+.agenda-preparado {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-top: 4px;
+}
+
+.agenda-preparado-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 4px;
+}
+
+.agenda-preparado-text {
+  font-size: 13px;
+  color: #b45309;
+}
+
+/* ---- Columna 3: Panel de ayuda inline ---- */
+.agenda-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 22px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agenda-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.agenda-panel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0b2d5c;
+  color: #f4c430;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Tipografía del panel compartida en styles.css */
+
+.agenda-panel-btn {
+  display: block;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+
+.agenda-panel-btn:hover {
+  background: #e2e8f0;
+}
+
+.agenda-panel-btn.btn-dark {
+  background: #0b2d5c;
+  color: #ffffff;
+  border-color: #0b2d5c;
+}
+
+.agenda-panel-btn.btn-dark:hover {
+  background: #0a2550;
+}
+
+.agenda-panel-btn.btn-warm {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.agenda-panel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* CTA Banner */
+.agenda-cta {
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .agenda-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .agenda-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .agenda-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-pills {
+    flex-wrap: wrap;
+  }
+}

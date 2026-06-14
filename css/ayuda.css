@@ -1,0 +1,221 @@
+/* ==========================================
+   SOL DE ORO — Estilos exclusivos de Ayuda
+   ========================================== */
+
+.ayuda-header {
+  margin: 32px 0 28px;
+}
+
+/* Grid 3 columnas */
+.ayuda-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+  align-items: start;
+}
+
+/* Tarjeta base */
+.ayuda-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+/* Tipografía de tarjeta compartida en styles.css */
+
+/* ---- Columna 1: Opciones de apoyo ---- */
+.ayuda-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f0f6ff;
+  margin-bottom: 10px;
+}
+
+.ayuda-option.warm {
+  background: #fffbeb;
+}
+
+.ayuda-option-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0b2d5c;
+  color: #f4c430;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.ayuda-option-icon.gold {
+  background: #f4c430;
+  color: #0b2d5c;
+}
+
+.ayuda-option-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b2d5c;
+  margin-bottom: 2px;
+}
+
+.ayuda-option-desc {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.ayuda-submit {
+  margin-top: 20px;
+  padding: 16px;
+  font-size: 15px;
+  border-radius: 50px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---- Columna 2: Canales ---- */
+.ayuda-canal {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: #f0f6ff;
+  margin-bottom: 10px;
+}
+
+.ayuda-canal.plain {
+  background: #f8fafc;
+}
+
+.ayuda-canal.warm {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+}
+
+.ayuda-canal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b2d5c;
+  margin-bottom: 3px;
+}
+
+.ayuda-canal.warm .ayuda-canal-title {
+  color: #92400e;
+}
+
+.ayuda-canal-desc {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.ayuda-canal.warm .ayuda-canal-desc {
+  color: #b45309;
+}
+
+/* ---- Columna 3: Panel de ayuda inline ---- */
+.ayuda-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 22px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ayuda-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.ayuda-panel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0b2d5c;
+  color: #f4c430;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Tipografía del panel compartida en styles.css */
+
+.ayuda-panel-btn {
+  display: block;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+
+.ayuda-panel-btn:hover {
+  background: #e2e8f0;
+}
+
+.ayuda-panel-btn.btn-dark {
+  background: #0b2d5c;
+  color: #ffffff;
+  border-color: #0b2d5c;
+}
+
+.ayuda-panel-btn.btn-dark:hover {
+  background: #0a2550;
+}
+
+.ayuda-panel-btn.btn-warm {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.ayuda-panel-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* CTA Banner */
+.ayuda-cta {
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .ayuda-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ayuda-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .ayuda-grid {
+    grid-template-columns: 1fr;
+  }
+}

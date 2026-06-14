@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sol de Oro - Inicio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">SO</div>
+          <div class="logo-text">
+            <span class="logo-name">Sol de Oro</span>
+            <span class="logo-subtitle">Servicios financieros inclusivos</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link active">Inicio</a>
+          <a href="simulador.html" class="nav-link">Simulador</a>
+          <a href="solicitud.html" class="nav-link">Solicitud</a>
+          <a href="ayuda.html" class="nav-link">Ayuda</a>
+          <a href="agenda.html" class="nav-link">Agenda asesor</a>
+        </nav>
+        <button
+          id="btn-accesibilidad"
+          class="btn-accesibilidad"
+          onclick="togglePanel()"
+        >
+          Ocultar panel
+        </button>
+      </div>
+    </header>
+
+    <!-- LAYOUT -->
+    <div class="page-wrapper" style="display: block; padding: 0 32px">
+      <main class="main-content" style="max-width: 1100px; margin: 0 auto">
+        <div class="page active">
+          <!-- ======= HERO ======= -->
+          <section class="hero-section">
+            <!-- Círculos decorativos de fondo -->
+            <div class="hero-circle hero-circle--blue"></div>
+            <div class="hero-circle hero-circle--gold"></div>
+
+            <!-- Texto principal -->
+            <div class="hero-text">
+              <h1 class="hero-title">Finanzas accesibles<br />para todos</h1>
+              <p class="hero-subtitle">
+                Solicita un préstamo con una experiencia clara,<br />
+                simple y adaptada a distintas necesidades.
+              </p>
+              <div class="hero-buttons">
+                <a href="solicitud.html" class="btn-primary"
+                  >Solicitar préstamo</a
+                >
+                <a href="simulador.html" class="btn-outline">Simular cuota</a>
+              </div>
+            </div>
+
+            <!-- Tarjeta flotante -->
+            <div class="hero-card">
+              <div class="hero-card-title">Solicitud guiada</div>
+              <div class="hero-card-subtitle">Te acompañamos paso a paso</div>
+              <div class="step-item">
+                <div class="step-dot"></div>
+                <span class="step-text">Completa tus datos</span>
+              </div>
+              <div class="step-item">
+                <div class="step-dot"></div>
+                <span class="step-text">Recibe apoyo accesible</span>
+              </div>
+              <div class="step-item">
+                <div class="step-dot"></div>
+                <span class="step-text">Agenda con asesor</span>
+              </div>
+            </div>
+
+            <!-- Panel de ayuda (3ª columna del hero) -->
+            <div id="panel-ayuda-index" class="hero-panel">
+              <div class="hero-panel-header panel-header">
+                <div class="hero-panel-icon panel-icon">A</div>
+                <div>
+                  <div class="hero-panel-title panel-title">Panel de ayuda</div>
+                  <div class="hero-panel-subtitle panel-subtitle">
+                    Acciones accesibles
+                  </div>
+                </div>
+              </div>
+              <button
+                class="hero-panel-btn panel-btn"
+                onclick="leerEnVozAlta()"
+              >
+                Leer en voz alta
+              </button>
+              <div class="hero-panel-row panel-row">
+                <button
+                  class="hero-panel-btn panel-btn"
+                  onclick="aumentarTexto()"
+                >
+                  A+ Texto
+                </button>
+                <button
+                  class="hero-panel-btn panel-btn"
+                  onclick="disminuirTexto()"
+                >
+                  A- Texto
+                </button>
+              </div>
+              <button
+                class="hero-panel-btn panel-btn btn-dark"
+                onclick="toggleAltoContraste()"
+              >
+                Alto contraste
+              </button>
+              <button
+                class="hero-panel-btn panel-btn btn-warm"
+                onclick="toggleLecturaSimple()"
+              >
+                Lectura simple
+              </button>
+              <a href="agenda.html" class="hero-panel-btn panel-btn btn-dark"
+                >Hablar con asesor</a
+              >
+            </div>
+            <!-- /panel -->
+          </section>
+          <!-- /HERO -->
+
+          <!-- ======= HERRAMIENTAS ======= -->
+          <section class="tools-section">
+            <h2 class="section-title">Herramientas de accesibilidad</h2>
+            <p class="section-subtitle">
+              Funciones pensadas para usuarios con discapacidad visual, motora o
+              cognitiva.
+            </p>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <span class="feature-badge badge--blue">VOZ</span>
+                <h3>Lectura por voz</h3>
+                <p>La página puede leer<br />el contenido principal.</p>
+              </div>
+
+              <div class="feature-card">
+                <span class="feature-badge badge--gold">A+</span>
+                <h3>Tamaño ajustable</h3>
+                <p>Permite aumentar o<br />disminuir el texto.</p>
+              </div>
+
+              <div class="feature-card">
+                <span class="feature-badge badge--sky">HC</span>
+                <h3>Alto contraste</h3>
+                <p>Mejora la lectura para<br />personas con baja visión.</p>
+              </div>
+
+              <div class="feature-card">
+                <span class="feature-badge badge--gold">AY</span>
+                <h3>Asesor inclusivo</h3>
+                <p>Canal directo para recibir<br />ayuda personalizada.</p>
+              </div>
+            </div>
+          </section>
+          <!-- /HERRAMIENTAS -->
+
+          <!-- ======= CTA BANNER ======= -->
+          <div class="cta-banner">
+            <div class="cta-text">
+              <h2>¿Necesitas apoyo para usar la plataforma?</h2>
+              <p>
+                Puedes solicitar ayuda de un asesor o activar las herramientas
+                accesibles en cualquier momento.
+              </p>
+            </div>
+            <a href="agenda.html" class="btn-cta-white">Agendar asesor</a>
+          </div>
+          <!-- /CTA -->
+        </div>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/actions/leer-voz-alta.js"></script>
+    <script src="js/actions/tamano-texto.js"></script>
+    <script src="js/actions/alto-contraste.js"></script>
+    <script src="js/actions/lectura-simple.js"></script>
+  </body>
+</html>

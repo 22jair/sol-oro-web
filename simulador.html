@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sol de Oro - Simulador</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/simulador.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">SO</div>
+          <div class="logo-text">
+            <span class="logo-name">Sol de Oro</span>
+            <span class="logo-subtitle">Servicios financieros inclusivos</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="simulador.html" class="nav-link active">Simulador</a>
+          <a href="solicitud.html" class="nav-link">Solicitud</a>
+          <a href="ayuda.html" class="nav-link">Ayuda</a>
+          <a href="agenda.html" class="nav-link">Agenda asesor</a>
+        </nav>
+        <button
+          id="btn-accesibilidad"
+          class="btn-accesibilidad"
+          onclick="togglePanel()"
+        >
+          Ocultar panel
+        </button>
+      </div>
+    </header>
+
+    <!-- LAYOUT -->
+    <div class="page-wrapper" style="display: block; padding: 0 32px">
+      <main class="main-content" style="max-width: 1100px; margin: 0 auto">
+        <div class="page active">
+          <!-- Encabezado -->
+          <div class="sim-header">
+            <h1>Simulador de préstamo</h1>
+            <p>Calcula una cuota aproximada antes de enviar tu solicitud.</p>
+          </div>
+
+          <!-- Dos columnas: datos + resultado -->
+          <div class="sim-grid">
+            <!-- Columna izquierda: Datos básicos -->
+            <div class="sim-card sim-card--form">
+              <div class="sim-card-title">Datos básicos</div>
+              <div class="sim-card-subtitle">
+                Ingresa la información para simular.
+              </div>
+
+              <!-- Monto -->
+              <div class="sim-field">
+                <label for="sim-monto">Monto solicitado</label>
+                <div class="sim-input-wrap">
+                  <span class="sim-currency">S/</span>
+                  <input
+                    type="number"
+                    id="sim-monto"
+                    placeholder="2,000"
+                    min="500"
+                    max="100000"
+                    step="100"
+                    oninput="simReactivo()"
+                  />
+                </div>
+              </div>
+
+              <!-- Plazo (pills) -->
+              <div class="sim-field">
+                <label>Plazo de pago</label>
+                <div class="sim-pills" id="sim-pills">
+                  <button
+                    class="sim-pill"
+                    data-meses="6"
+                    onclick="seleccionarPlazo(6)"
+                  >
+                    6 meses
+                  </button>
+                  <button
+                    class="sim-pill active"
+                    data-meses="12"
+                    onclick="seleccionarPlazo(12)"
+                  >
+                    12 meses
+                  </button>
+                  <button
+                    class="sim-pill"
+                    data-meses="18"
+                    onclick="seleccionarPlazo(18)"
+                  >
+                    18 meses
+                  </button>
+                  <button
+                    class="sim-pill"
+                    data-meses="24"
+                    onclick="seleccionarPlazo(24)"
+                  >
+                    24 meses
+                  </button>
+                  <button
+                    class="sim-pill"
+                    data-meses="36"
+                    onclick="seleccionarPlazo(36)"
+                  >
+                    36 meses
+                  </button>
+                </div>
+              </div>
+
+              <!-- Ingreso mensual -->
+              <div class="sim-field">
+                <label for="sim-ingreso">Ingreso mensual aproximado</label>
+                <div class="sim-input-wrap">
+                  <span class="sim-currency">S/</span>
+                  <input
+                    type="number"
+                    id="sim-ingreso"
+                    placeholder="1,500"
+                    min="0"
+                    oninput="simReactivo()"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- /form -->
+
+            <!-- Columna derecha: Resultado -->
+            <div class="sim-card sim-card--result">
+              <div class="sim-card-title">Resultado</div>
+              <div class="sim-card-subtitle">Cuota estimada.</div>
+
+              <div class="sim-result-highlight">
+                <div class="sim-result-label">Pagarías al mes</div>
+                <div class="sim-result-amount" id="result-cuota">S/ —</div>
+              </div>
+
+              <div class="sim-result-details">
+                <div class="sim-detail-row">
+                  <span class="sim-detail-label">Monto solicitado</span>
+                  <span class="sim-detail-value" id="result-monto-display"
+                    >—</span
+                  >
+                </div>
+                <div class="sim-detail-row">
+                  <span class="sim-detail-label">Plazo elegido</span>
+                  <span class="sim-detail-value" id="result-plazo-display"
+                    >12 meses</span
+                  >
+                </div>
+              </div>
+
+              <a href="solicitud.html" class="btn-primary btn-block sim-cta"
+                >Continuar solicitud</a
+              >
+            </div>
+            <!-- /result -->
+
+            <!-- Columna 3: Panel de ayuda -->
+            <div id="panel-ayuda-simulador" class="sim-panel">
+              <div class="sim-panel-header panel-header">
+                <div class="sim-panel-icon panel-icon">A</div>
+                <div>
+                  <div class="sim-panel-title panel-title">Panel de ayuda</div>
+                  <div class="sim-panel-subtitle panel-subtitle">
+                    Acciones accesibles
+                  </div>
+                </div>
+              </div>
+              <button class="sim-panel-btn panel-btn" onclick="leerEnVozAlta()">
+                Leer en voz alta
+              </button>
+              <div class="sim-panel-row panel-row">
+                <button
+                  class="sim-panel-btn panel-btn"
+                  onclick="aumentarTexto()"
+                >
+                  A+ Texto
+                </button>
+                <button
+                  class="sim-panel-btn panel-btn"
+                  onclick="disminuirTexto()"
+                >
+                  A- Texto
+                </button>
+              </div>
+              <button
+                class="sim-panel-btn panel-btn btn-dark"
+                onclick="toggleAltoContraste()"
+              >
+                Alto contraste
+              </button>
+              <button
+                class="sim-panel-btn panel-btn btn-warm"
+                onclick="toggleLecturaSimple()"
+              >
+                Lectura simple
+              </button>
+              <a href="agenda.html" class="sim-panel-btn panel-btn btn-dark"
+                >Hablar con asesor</a
+              >
+            </div>
+            <!-- /panel -->
+          </div>
+          <!-- /sim-grid -->
+
+          <!-- Banner CTA -->
+          <div class="cta-banner sim-cta-banner">
+            <div class="cta-text">
+              <h2>Simulación clara y accesible</h2>
+              <p>
+                El usuario puede calcular su cuota y activar ayudas visuales o
+                de lectura durante el proceso.
+              </p>
+            </div>
+            <a href="ayuda.html" class="btn-cta-white">Pedir ayuda</a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/actions/leer-voz-alta.js"></script>
+    <script src="js/actions/tamano-texto.js"></script>
+    <script src="js/actions/alto-contraste.js"></script>
+    <script src="js/actions/lectura-simple.js"></script>
+  </body>
+</html>
