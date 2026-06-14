@@ -5,10 +5,23 @@
 
 let simPlazo = 12;
 let panelVisible = true;
+let navMenuOpen = false;
 const PANEL_STORAGE_KEY = "soldeoro_panel_visible";
+
+function pageNavbar() {
+  return document.querySelector(".navbar");
+}
 
 function pagePanel() {
   return document.querySelector("[id^='panel-ayuda-']");
+}
+
+function pageNavMenu() {
+  return document.getElementById("main-nav");
+}
+
+function pageNavButton() {
+  return document.getElementById("btn-menu");
 }
 
 function getSavedPanelVisibility() {
@@ -51,6 +64,33 @@ function togglePanel() {
   panel.style.display = nextVisible ? "" : "none";
   savePanelVisibility(nextVisible);
   syncAccessibilityButton();
+}
+
+function syncNavMenuButton() {
+  const navbar = pageNavbar();
+  const button = pageNavButton();
+  const menu = pageNavMenu();
+  if (!navbar || !button || !menu) return;
+
+  const open = navbar.classList.contains("menu-open");
+  navMenuOpen = open;
+  button.textContent = open ? "Cerrar" : "Menú";
+  button.setAttribute("aria-expanded", open ? "true" : "false");
+}
+
+function closeNavMenu() {
+  const navbar = pageNavbar();
+  if (!navbar) return;
+  navbar.classList.remove("menu-open");
+  navMenuOpen = false;
+  syncNavMenuButton();
+}
+
+function toggleNavMenu() {
+  const navbar = pageNavbar();
+  if (!navbar) return;
+  navbar.classList.toggle("menu-open");
+  syncNavMenuButton();
 }
 
 function seleccionarPlazo(meses) {
@@ -110,6 +150,8 @@ function solicitudInit() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  syncNavMenuButton();
+
   const panel = pagePanel();
   const savedVisible = getSavedPanelVisibility();
 
@@ -126,4 +168,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   solicitudInit();
   syncAccessibilityButton();
+
+  document.querySelectorAll(".nav-links .nav-link").forEach(function (link) {
+    link.addEventListener("click", closeNavMenu);
+  });
+});
+
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 640) {
+    closeNavMenu();
+  }
 });

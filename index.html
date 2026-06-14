@@ -22,13 +22,22 @@
             <span class="logo-subtitle">Servicios financieros inclusivos</span>
           </div>
         </a>
-        <nav class="nav-links">
+        <nav class="nav-links" id="main-nav">
           <a href="index.html" class="nav-link active">Inicio</a>
           <a href="simulador.html" class="nav-link">Simulador</a>
           <a href="solicitud.html" class="nav-link">Solicitud</a>
           <a href="ayuda.html" class="nav-link">Ayuda</a>
           <a href="agenda.html" class="nav-link">Agenda asesor</a>
         </nav>
+        <button
+          id="btn-menu"
+          class="nav-menu-toggle"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          onclick="toggleNavMenu()"
+        >
+          Menú
+        </button>
         <button
           id="btn-accesibilidad"
           class="btn-accesibilidad"
